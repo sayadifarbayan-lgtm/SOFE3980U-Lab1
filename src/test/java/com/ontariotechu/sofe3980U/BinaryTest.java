@@ -118,4 +118,120 @@ public class BinaryTest
 		Binary binary3=Binary.add(binary1,binary2);
         assertTrue( binary3.getValue().equals("0"));
     }
+        /**
+     * Test bitwise OR with complementary bits
+     */
+    @Test
+    public void or1()
+    {
+        Binary binary1 = new Binary("1010");
+        Binary binary2 = new Binary("0101");
+        Binary result = Binary.or(binary1, binary2);
+
+        assertTrue(result.getValue().equals("1111"));
+    }
+
+    /**
+     * Test bitwise OR with zero
+     */
+    @Test
+    public void or2()
+    {
+        Binary binary1 = new Binary("0");
+        Binary binary2 = new Binary("1111");
+        Binary result = Binary.or(binary1, binary2);
+
+        assertTrue(result.getValue().equals("1111"));
+    }
+
+    /**
+     * Test bitwise OR with different lengths
+     */
+    @Test
+    public void or3()
+    {
+        Binary binary1 = new Binary("101");
+        Binary binary2 = new Binary("10");
+        Binary result = Binary.or(binary1, binary2);
+
+        assertTrue(result.getValue().equals("111"));
+    }
+
+    /**
+     * Test bitwise AND with complementary bits
+     */
+    @Test
+    public void and1()
+    {
+        Binary binary1 = new Binary("1010");
+        Binary binary2 = new Binary("0101");
+        Binary result = Binary.and(binary1, binary2);
+
+        assertTrue(result.getValue().equals("0"));
+    }
+
+    /**
+     * Test bitwise AND with matching bits
+     */
+    @Test
+    public void and2()
+    {
+        Binary binary1 = new Binary("1111");
+        Binary binary2 = new Binary("0101");
+        Binary result = Binary.and(binary1, binary2);
+
+        assertTrue(result.getValue().equals("101"));
+    }
+
+    /**
+     * Test bitwise AND with different lengths
+     */
+    @Test
+    public void and3()
+    {
+        Binary binary1 = new Binary("1100");
+        Binary binary2 = new Binary("1010");
+        Binary result = Binary.and(binary1, binary2);
+
+        assertTrue(result.getValue().equals("1000"));
+    }
+
+    /**
+     * Test multiplication of two binary numbers
+     */
+    @Test
+    public void multiply1()
+    {
+        Binary binary1 = new Binary("10");
+        Binary binary2 = new Binary("11");
+        Binary result = Binary.multiply(binary1, binary2);
+
+        assertTrue(result.getValue().equals("110"));
+    }
+
+    /**
+     * Test multiplication by zero
+     */
+    @Test
+    public void multiply2()
+    {
+        Binary binary1 = new Binary("1010");
+        Binary binary2 = new Binary("0");
+        Binary result = Binary.multiply(binary1, binary2);
+
+        assertTrue(result.getValue().equals("0"));
+    }
+
+    /**
+     * Test multiplication by one
+     */
+    @Test
+    public void multiply3()
+    {
+        Binary binary1 = new Binary("1011");
+        Binary binary2 = new Binary("1");
+        Binary result = Binary.multiply(binary1, binary2);
+
+        assertTrue(result.getValue().equals("1011"));
+    }
 }
